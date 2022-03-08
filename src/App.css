@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  background: #bbd3e2;
+}
+
+body {
+  margin: 0;
+}
+
+.App{
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 40vh;
+}
+
+.App-button{
+  width: auto;
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}

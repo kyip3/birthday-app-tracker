@@ -1,0 +1,33 @@
+.birthday-card
+{
+    background-color: rgb(233, 233, 233);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.birthday-controls label
+{
+    display:block; /* to display label on top of input*/
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.birthday-controls input
+{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    padding: 0.2rem;
+    font:inherit;
+}
+.birthday-controls input:focus
+{
+    outline: none;
+    border-color: #09739c;
+}
+.birthday-controls__bottom
+{
+    text-align: right;
+}

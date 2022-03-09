@@ -1,0 +1,24 @@
+.display-name-details{
+    display: flex;
+    justify-content: space-between;
+}
+
+.display-name{
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.birthday-card button{
+    /* background-color: azure; */
+    padding: 0 0.4rem;
+    border-color: rgb(128, 128, 214);
+    border-style: dashed;
+    border-width: 0.1rem;
+    border-radius: 5px;
+}
+.birthday-card button:hover{
+    background-color: rgb(200, 214, 214); 
+}
+.birthday-card button:active{
+    background-color: rgb(225, 243, 243); 
+}

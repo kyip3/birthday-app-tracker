@@ -1,0 +1,18 @@
+.display-date-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: small;
+}
+
+.display-date{
+    display: flex;
+    flex-direction: row;
+}
+.display-day{
+    padding-left: 0.3rem;
+}
+.display-year{
+    display:block;
+    background-color: aquamarine;
+}

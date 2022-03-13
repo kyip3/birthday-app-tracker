@@ -1,40 +1,71 @@
-import FormatDate from "./FormatDate";
 import './DisplayBirthdayListing.css';
-
+import DisplayBirthday from './DisplayBirthday';
 const DisplayBirthdayListing = (props) => {
 
-    //sort by month
+
     const listing = props.listing;
 
-    listing.sort((a,b)=> {
-        return a.birthday.getMonth() - b.birthday.getMonth();
+    //sort the list by month, then day
+    listing.sort((a, b) => {
+        //  return a.birthday.getMonth() - b.birthday.getMonth();
+        if (a.birthday.getMonth() !== b.birthday.getMonth()) {
+            return a.birthday.getMonth() - b.birthday.getMonth();
+        }
+        else {
+            return a.birthday.getDate() - b.birthday.getDate();
+        }
     });
 
-    const deleteHandler = (id)=> {
+
+
+    //console.log('sorted listing', listing);
+
+    const deleteHandler = (id) => {
         props.onDeleteBirthday(id);
     }
 
 
-    
+    const uniqueMonthList = [];
+    for (let i = 0; i < listing.length; i++) {
+        const found = uniqueMonthList.find(element => element.getMonth() === listing[i].birthday.getMonth());
+
+        if (!found)
+            uniqueMonthList.push(listing[i].birthday);
+    }
+
+    const currentMonth = new Date().getMonth();
+    //console.log('currentMonth', currentMonth);
+
+    while (true) {
+
+        if (uniqueMonthList[0].getMonth() >= currentMonth) {
+            break;
+        }
+
+
+        //remove first and push to back
+        const firstElement = uniqueMonthList.shift();
+        uniqueMonthList.push(firstElement);
+    }
+    // console.log('sorted uniqueMonthList', uniqueMonthList);
+
     return (
         <div>
-            {
-                listing.map((list) => (
-                    <div className='birthday-card' key={list.id}>
-                        <div className='display-name-details'>
-                            <div className='display-name'>
-                                {list.name}
-                            </div>
-                            <button type="submit" onClick={(e)=>deleteHandler(list.id)}>
-                                X
-                            </button>
-                        </div>
-                        <div>
-                            <FormatDate date={list.birthday} />
-                        </div>
+            {uniqueMonthList.map(uniqueMonth =>
+                <div key={uniqueMonth.getMonth()}>
+
+                    <div>
+                        {uniqueMonth.toLocaleDateString('en-US', { month: 'long' })}
                     </div>
-                ))
-            }
+
+
+                    <DisplayBirthday listing={listing} selectedMonth={uniqueMonth} onDeleteBirthday={deleteHandler} />
+
+                </div>
+
+            )}
+
+
         </div>
     );
 }

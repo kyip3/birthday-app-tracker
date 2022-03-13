@@ -10,7 +10,7 @@ const BirthdayList = (props) => {
     }
     return (
         <div className='birthday-listing'>
-            <label className='birthday-list-label'>Upcoming birthdays</label>
+            {listing.length === 0 &&  <label className='birthday-list-label'>No birthdays</label> }
             <DisplayBirthdayListing listing={listing} onDeleteBirthday={deleteBirthdayHandler}/>
         </div>
 

@@ -5,12 +5,15 @@ import { useState } from 'react';
 import { isValidDateValue } from '@testing-library/user-event/dist/utils';
 
 const SAMPLE_DATA = [
-  { id: 3, name: 'Anna', birthday: new Date('1984-06-04') },
-  { id: 0, name: 'Jenny', birthday: new Date('1989-04-19') },
-  { id: 1, name: 'Lucy', birthday: new Date('2000-05-24') },
-  { id: 2, name: 'May', birthday: new Date('2004-05-30') },
-
-  { id: 4, name: 'Bella', birthday: new Date('1988-07-10') }
+  
+  { id: 0, name: 'Jenny', birthday: new Date('1989-04-19')},
+  { id: 1, name: 'Lucy', birthday: new Date('2000-05-24')},
+  { id: 2, name: 'phobe', birthday: new Date('2004-05-30')},
+  { id: 3, name: 'Anna', birthday: new Date('1984-06-04')},
+  { id: 4, name: 'Bella', birthday: new Date('1988-07-10') },
+  { id: 5, name: 'Mary', birthday: new Date('1988-02-10') },
+  { id: 6, name: 'kaiyn', birthday: new Date('1988-01-10') },
+  { id: 6, name: 'mars', birthday: new Date('1988-03-10') }
 ];
 function App() {
 
@@ -28,7 +31,7 @@ function App() {
 
   const handleAddNewBirthday = (value) => {
     
-    const newValue = { id: Math.random(), name: value.newName, birthday: new Date(value.newBirthday) };
+    const newValue = { id: Math.random(), name: value.newName, birthday: new Date(value.newBirthday)};
     console.log('adding new birthday', newValue);
 
     setBirthdayList((prevState) => {
@@ -41,7 +44,7 @@ function App() {
     console.log('deleting id', id);
 
     var newList = birthdayList.filter(value=>{
-      return value.id != id;
+      return value.id !== id;
     });
 
     setBirthdayList(newList);
